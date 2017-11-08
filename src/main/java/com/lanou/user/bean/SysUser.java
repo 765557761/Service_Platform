@@ -5,6 +5,7 @@ import java.util.Date;
 public class SysUser {
     private Integer id;
 
+
     private String username;
 
     private String password;
