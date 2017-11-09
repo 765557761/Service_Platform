@@ -19,17 +19,19 @@
     <title>后台登录 - H-ui.admin v3.1</title>
     <meta name="keywords" content="H-ui.admin v3.1,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
     <meta name="description" content="H-ui.admin v3.1，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
-    <script src="/js/jquery-3.2.1.js"></script>
+    <script src="/js/jquery-3.2.1.js">
+
+    </script>
 </head>
 <script>
-    $("#ppp").html($.cookie("msg"))
+    $("#ppp").val("123")
 </script>
 <body>
 <input type="hidden" id="TenantId" name="TenantId" value=""/>
 <div class="header"></div>
 <div class="loginWraper">
     <div id="loginform" class="loginBox">
-        <form class="form form-horizontal" action="/login" method="post">
+        <form class="form form-horizontal" action="/loginsubmit" method="post">
         <div class="row cl">
             <label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe60d;</i></label>
             <div class="formControls col-xs-8">
@@ -45,9 +47,13 @@
         <div class="row cl">
             <div class="formControls col-xs-8 col-xs-offset-3">
                 <input class="input-text size-L" type="text" placeholder="验证码"
-                       onblur="if(this.value==''){this.value='验证码:'}" onclick="if(this.value=='验证码:'){this.value='';}"
+                       id="verifyCode"
+                       onblur="if(this.value==''){this.value='验证码:'}"
+                       onclick="if(this.value=='验证码:'){this.value='';}"
                        value="验证码:" style="width:150px;">
-                <img src=""> <a id="kanbuq" href="javascript:;">看不清，换一张</a></div>
+                <img src="/verifyCode" id="codeImg">
+                <!--<a id="kanbuq" href="/verifyCode">看不清，换一张</a>-->
+            </div>
         </div>
         <div class="row cl">
             <div class="formControls col-xs-8 col-xs-offset-3">
@@ -81,6 +87,26 @@
         var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(hm, s);
     })();
+
+    //验证码
+    window.onload=function init () {
+        /*给验证码图片标签加点击事件*/
+        document.getElementById("codeImg").onclick=function () {
+            /*重新请求图片*/
+            document.getElementById("codeImg").setAttribute(
+                    "src","/verifyCode?timeStamp="+new Date());
+        }
+    };
+
+    VerifyCode();
+    function VerifyCode() {
+        $.ajax({
+            url:"/verifyCode",
+            success:function (result) {
+
+            }
+        })
+    }
 </script>
 </body>
 </html>
