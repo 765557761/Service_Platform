@@ -1,5 +1,4 @@
 package com.lanou.user.controller;
-
 import com.lanou.user.exception.CustomException;
 import com.lanou.user.service.UserService;
 import org.apache.shiro.authc.IncorrectCredentialsException;
@@ -7,7 +6,6 @@ import org.apache.shiro.authc.UnknownAccountException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 

@@ -15,7 +15,6 @@
                 <entry key="authc" value-ref="formAuthenticationFilter"/>
             </map>
         </property>
-
         <property name="filterChainDefinitions">
             <value>
                 <!--anon:不拦截(默认)-->
