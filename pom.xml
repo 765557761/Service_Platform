@@ -2,17 +2,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.lanou</groupId>
-  <artifactId>Service-Platform</artifactId>
+  <artifactId>Blog</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>Service-Platform Maven Webapp</name>
+  <name>Blog Maven Webapp</name>
   <url>http://maven.apache.org</url>
-
   <properties>
+    <!--spring.version：多次使用时 ${spring.version}替代,标签名就是变量名-->
     <spring.version>4.3.6.RELEASE</spring.version>
     <spring-data.version>1.11.0.RELEASE</spring-data.version>
   </properties>
-
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -80,7 +79,6 @@
       <version>2.0.8</version>
     </dependency>
 
-    <!--依赖于spring-jdbc,spring-dao-->
     <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
     <dependency>
       <groupId>org.mybatis</groupId>
@@ -88,7 +86,6 @@
       <version>1.3.1</version>
     </dependency>
 
-    <!--可以用阿里的德鲁伊框架,dbcp,c3p0-->
     <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-dbcp2 -->
     <dependency>
       <groupId>org.apache.commons</groupId>
@@ -108,8 +105,11 @@
       <artifactId>jackson-databind</artifactId>
       <version>2.8.6</version>
     </dependency>
-
-
+    <dependency>
+      <groupId>com.github.pagehelper</groupId>
+      <artifactId>pagehelper</artifactId>
+      <version>4.0.0</version>
+    </dependency>
     <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
     <dependency>
       <groupId>javax.servlet</groupId>
@@ -117,49 +117,40 @@
       <version>3.1.0</version>
       <scope>provided</scope>
     </dependency>
-
-    <!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
+    <!--activeMQ-->
     <dependency>
-      <groupId>redis.clients</groupId>
-      <artifactId>jedis</artifactId>
-      <version>2.9.0</version>
+      <groupId>org.apache.activemq</groupId>
+      <artifactId>activemq-all</artifactId>
+      <version>5.15.0</version>
     </dependency>
-
-
-    <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-redis -->
     <dependency>
-      <groupId>org.springframework.data</groupId>
-      <artifactId>spring-data-redis</artifactId>
-      <version>1.7.2.RELEASE</version>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjweaver</artifactId>
+      <version>1.8.10</version>
     </dependency>
-
-
     <dependency>
-      <groupId>com.github.pagehelper</groupId>
-      <artifactId>pagehelper</artifactId>
-      <version>4.0.0</version>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-aop</artifactId>
+      <version>4.3.10.RELEASE</version>
     </dependency>
-
-
     <!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-all -->
     <dependency>
       <groupId>org.apache.shiro</groupId>
       <artifactId>shiro-all</artifactId>
-      <version>1.2.3</version>
+      <version>1.2.4</version>
     </dependency>
-
-
+    <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
     <dependency>
-      <groupId>commons-logging</groupId>
-      <artifactId>commons-logging</artifactId>
-      <version>1.1.3</version>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.7.25</version>
     </dependency>
+
+
 
   </dependencies>
-
   <build>
-    <finalName>Service-Platform</finalName>
-
+    <finalName>Blog</finalName>
     <resources>
       <resource>
         <directory>src/main/resources</directory>
@@ -191,6 +182,5 @@
         </configuration>
       </plugin>
     </plugins>
-
   </build>
 </project>
