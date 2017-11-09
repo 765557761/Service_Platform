@@ -9,6 +9,7 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 
 import javax.annotation.Resource;
+import javax.servlet.http.Cookie;
 import java.util.Arrays;
 import java.util.List;
 

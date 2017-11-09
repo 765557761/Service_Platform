@@ -29,11 +29,14 @@ public class CustomExceptionResolver implements HandlerExceptionResolver {
             exception = (CustomException) e;
         } else {
             // 其他异常
-            exception = new CustomException("未知错误");
+            exception = new CustomException("用户名或密码错误");
         }
         String msg = exception.getMessage();
-        Cookie cookie = new Cookie("msg",msg);
-        response.addCookie(cookie);
+//        Cookie cookie = new Cookie("msg",msg);
+//        cookie.setPath("/");
+//        cookie.setMaxAge(-1);
+//        response.addCookie(cookie);
+        request.setAttribute("msg",msg);
         try {
             request.getRequestDispatcher("/WEB-INF/login.html").forward(request, response);
         } catch (ServletException e1) {
